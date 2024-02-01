@@ -1,0 +1,29 @@
+<!-- templates/books.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link to the external stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+    <title>Book List</title>
+</head>
+<body>
+    <!-- Container div for styling purposes -->
+    <div class="container">
+        <!-- Heading for the Book List -->
+        <h1>Book List</h1>
+        
+        <!-- Unordered list to display the books -->
+        <ul>
+            <!-- Loop through each book and display its title, author, and publication year -->
+            {% for book in books %}
+                <li>{{ book.title }} by {{ book.author }} ({{ book.pub_year }})</li>
+            {% endfor %}
+        </ul>
+        
+        <!-- Link to navigate to the 'add_book' route for adding a new book -->
+        <a href="{{ url_for('add_book') }}">Add a new book</a>
+    </div>
+</body>
+</html>
